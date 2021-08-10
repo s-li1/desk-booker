@@ -43,11 +43,8 @@ namespace DeskBooker.Core.Processor
         [Fact]
         public void ShouldReturnDeskBookingResultWithRequestValues()
         {
-
-            //  Act
             DeskBookingResult result = _processor.BookDesk(_request);
 
-            //  Assert
             Assert.NotNull(_request);
             Assert.Equal(_request.FirstName, result.FirstName);
             Assert.Equal(_request.LastName, result.LastName);
@@ -58,10 +55,8 @@ namespace DeskBooker.Core.Processor
         [Fact]
         public void ShouldThrowNullExceptionIfRequestIsNull()
         {
-            //  Act
             var exception = Assert.Throws<ArgumentNullException>(() => _processor.BookDesk(null));
 
-            //  Assert
             Assert.Equal("request", exception.ParamName);
         }
 
